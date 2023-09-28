@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="jquery_app.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#p1").dblclick(function () {
+                $(this).hide();
+            });
+        });
+        $(document).ready(function () {
+            $("#p1").mouseenter(function () {
+                alert("Entered p1!")
+            });
+        });
+        // also mouseLeave/mousedown/mouseup
+
+        // hovering
+        $(document).ready(function () {
+            $("#p2").hover(function () {
+                alert("You entered p1!");
+            },
+                function () {
+                    alert("Bye! You now leave p1!");
+                });
+        });
+
+        // focus & blur
+        $(document).ready(function () {
+            $("input").focus(function () {
+                $(this).css("background-color", "yellow");
+            });
+            $("input").blur(function () {
+                $(this).css("background-color", "green");
+            });
+        });
+
+        // show and hide the text
+        $(document).ready(function () {
+            $("#hide").click(function () {
+                $("#p3").hide();
+            });
+            $("#show").click(function () {
+                $("#p3").show();
+            });
+        });
+
+        // toggle
+        $(document).ready(function () {
+            $("button").click(function () {
+                $(".p4").toggle();
+            });
+        });
+
+        // fadeToggle
+        $(document).ready(function () {
+            $("#button1").click(function () {
+                $("#div1").fadeToggle();
+                $("#div2").fadeToggle("slow");
+                $("#div3").fadeToggle(3000);
+            });
+        });
+
+        // toggle_slide
+        $(document).ready(function () {
+            $("#flip").click(function () {
+                $("#panel").slideToggle("slow");
+            });
+        });
+
+        // animated
+        $(document).ready(function () {
+            $("#btn1").click(function () {
+                $("#div4").animate({ left: '250px' });
+            });
+        });
+
+        // hide callback
+        $(document).ready(function () {
+            $("button").click(function () {
+                $("p").hide("slow", function () {
+                    alert("The paragraph is now hidden");
+                });
+            });
+        });
+
+        // hide no callback
+        $(document).ready(function () {
+            $("button").click(function () {
+                $("p").hide(1000);
+                alert("The paragraph is now hidden");
+            });
+        });
+    </script>
+    <link rel="stylesheet" href="style.css">
+    <title>Jquery</title>
+</head>
+
+<body>
+
+    <p>click on me to disapear</p>
+    <p id="p1">test this part 2</p>
+    <p id="p2">Hover into it</p>
+
+    Name: <input type="text" name="fullname"><br>
+    Email: <input type="text" name="email">
+    <hr>
+
+    <div>
+        <p id="p3">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perferendis aperiam quod facilis in
+            voluptates
+            placeat? Sapiente nulla veritatis impedit voluptatum reprehenderit molestias voluptas.</p>
+    </div>
+    <button id="hide">Hide</button>
+    <button id="show">Show</button>
+    <br>
+    <div>
+        <button>Toggle between hiding and showing the paragraphs</button>
+
+        <p class="p4">This is a paragraph with little content.</p>
+        <p class="p4">This is another small paragraph.</p>
+    </div>
+
+
+    <button id="button1">Click to fade in/out boxes</button><br><br>
+
+    <div id="div1" style="width:80px;height:80px;background-color:red;"></div>
+    <br>
+    <div id="div2" style="width:80px;height:80px;background-color:green;"></div>
+    <br>
+    <div id="div3" style="width:80px;height:80px;background-color:blue;"></div>
+    <script src="app.js"></script>
+
+    <div>
+        <div id="flip" onclick="">Click to slide the panel down or up</div>
+        <div id="panel">Hello world!</div>
+    </div>
+
+    <button id="btn1">Start Animation</button>
+    <div id="id4" style="background:#98bf21;height:100px;width:100px;position:absolute;"></div>
+</body>
+
+</html>
